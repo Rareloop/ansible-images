@@ -4,7 +4,7 @@ A simple dockerfile based on Alpine linux which installs the requested Ansible V
 
 ## Building
 
-You can build an image by doing the following: `docker build --build-arg ANSIBLE_VERSION=4.8.0 . -t tomb1n0/ansible:4.8.0`. Replace the ANIBLE_VERSION and tag name with whatever you need.
+You can build an image by doing the following: `docker build --build-arg ANSIBLE_VERSION=4.8.0 . -t tomb1n0/ansible:4.8.0`. Replace the ANSIBLE_VERSION and tag name with whatever you need.
 
 ## Usage example
 
