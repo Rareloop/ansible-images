@@ -32,7 +32,7 @@ jobs:
           builds-args: |
             ANSIBLE_VERSION=${{ matrix.image }}
           context: .
-          file: ${{ matrix.image }}/DockerFile
+          file: DockerFile
           platforms: linux/amd64, linux/arm64
           push: true
           tags: tomb1n0/ansible:${{ matrix.image }}
