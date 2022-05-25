@@ -8,5 +8,5 @@ if [ -n "$1" ]; then
 fi
 
 # Ansible 4.8.0
-(docker build --build-arg ANSIBLE_VERSION=${ANSIBLE_VERSION} . -t tomb1n0/ansible:${ANSIBLE_VERSION} && docker push tomb1n0/ansible:${ANSIBLE_VERSION})
+(docker build --build-arg ANSIBLE_VERSION=${ANSIBLE_VERSION} . -t rareloop/ansible:${ANSIBLE_VERSION} && docker push rareloop/ansible:${ANSIBLE_VERSION})
 

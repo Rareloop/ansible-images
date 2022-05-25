@@ -35,4 +35,4 @@ jobs:
             ANSIBLE_VERSION=${{ matrix.image }}
           platforms: linux/amd64, linux/arm64
           push: true
-          tags: tomb1n0/ansible:${{ matrix.image }}
+          tags: rareloop/ansible:${{ matrix.image }}
