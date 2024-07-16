@@ -10,19 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image:
-          - 2.10.0
-          - 3.4.0
-          - 4.8.0
-          - 4.10.0
-          - 5.5.0
-          - 5.8.0
-          - 5.10.0
-          - 6.7.0
-          - 7.7.0
-          - 8.7.0
-          - 9.7.0
-          - 10.1.0
+        versions:
+          - { ansible: "2.10.0", alpine: "3.13" }
+          - { ansible: "3.4.0", alpine: "3.15" }
+          - { ansible: "4.8.0", alpine: "3.15" }
+          - { ansible: "4.10.0", alpine: "3.15" }
+          - { ansible: "5.5.0", alpine: "3.16" }
+          - { ansible: "5.8.0", alpine: "3.16" }
+          - { ansible: "5.10.0", alpine: "3.16" }
+          - { ansible: "6.7.0", alpine: "3.16" }
+          - { ansible: "7.7.0", alpine: "3.18" }
+          - { ansible: "8.7.0", alpine: "3.18" }
+          - { ansible: "9.7.0", alpine: "3.20" }
+          - { ansible: "10.1.0", alpine: "3.20" }
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -40,7 +40,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           build-args: |
-            ANSIBLE_VERSION=${{ matrix.image }}
+            ANSIBLE_VERSION=${{ matrix.versions.ansible }}
+            BASE_IMAGE=alpine:${{ matrix.versions.alpine }}
           platforms: linux/amd64, linux/arm64
           push: true
-          tags: rareloop/ansible:${{ matrix.image }}
+          tags: rareloop/ansible:${{ matrix.versions.ansible }}
