@@ -12,10 +12,10 @@ RUN apk add --update python3 py-pip openssl ca-certificates bash git sudo zip ss
 
 # Note: Apply fix from Jeff that allows pip install to work without --break-system-packages
 # https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3
-RUN find /usr/lib/python* | grep EXTERNALLY-MANAGED | xargs -r rm 
+RUN find /usr/lib/python* | grep EXTERNALLY-MANAGED | xargs -r rm
 
 # Pip Dependencies
-RUN pip install --upgrade pip cffi \
+RUN pip install --upgrade pip cffi passlib \
     && pip install --upgrade pycrypto pywinrm
 
 # Install Ansible
